@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git url: 'https://github.com/adarsh0331/project10.git', branch: 'main'
+                git url: 'https://github.com/saicharan0117/Project_07_Sonarqube_Docker.git', branch: 'main'
             }
         }
 
@@ -21,8 +21,8 @@ pipeline {
                             ${scannerHome}/bin/sonar-scanner \
                             -Dsonar.projectKey=my-devops-app \
                             -Dsonar.sources=. \
-                            -Dsonar.host.url=http://52.66.142.214:9000 \
-                            -Dsonar.login=squ_643d162ae309b24b5bdd55de630795e75f204a52
+                            -Dsonar.host.url=http://13.218.73.146:9000 \
+                            -Dsonar.login=squ_e1eab6b1c38aa05ef8b341bec43879b0ad077187
                         """
                     }
                 }
