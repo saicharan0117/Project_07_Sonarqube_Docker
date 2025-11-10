@@ -17,13 +17,11 @@ pipeline {
                 withSonarQubeEnv('SonarQube') {   // Jenkins -> Manage Jenkins -> Configure System -> SonarQube servers
                     script {
                         def scannerHome = tool 'SonarScannerCLI'   // Jenkins -> Manage Jenkins -> Tools -> SonarQube Scanner installations
-                        sh """
-                            ${scannerHome}/bin/sonar-scanner \
-                            -Dsonar.projectKey=my-devops-app \
-                            -Dsonar.sources=. \
-                            -Dsonar.host.url=http://13.218.73.146:9000/ \
-                            -Dsonar.login=squ_e1eab6b1c38aa05ef8b341bec43879b0ad077187
-                        """
+                        sh 'ls -ltr'
+                        sh '''mvn sonar:sonar \
+                          -Dsonar.host.url=http://13.218.73.146:9000/ \
+                          -Dsonar.login=squ_e1eab6b1c38aa05ef8b341bec43879b0ad077187'''
+                
                     }
                 }
             }
